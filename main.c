@@ -115,6 +115,20 @@ int CINI_fill_window(SDL_Renderer* renderer,char* c){
 	return EXIT_SUCCESS;
 }
 
+
+int CINI_fillrect(SDL_Renderer* renderer,int xdepart,int ydepart, int width,int heigth,char* c){
+	SDL_Rect rect = {xdepart,ydepart,width,heigth};
+	Uint8* T = convert_hex_to_int_color(c);
+	SDL_SetRenderDrawColor(renderer,T[0],T[1],T[2],255);
+	if(SDL_RenderFillRect(renderer, &rect) != EXIT_SUCCESS){
+		free(T);
+		return EXIT_FAILURE;
+	}
+	free(T);
+	return EXIT_SUCCESS;
+}
+
+
 void CINI_loop(SDL_Renderer* renderer){
 	SDL_RenderPresent(renderer);
 	SDL_bool displayed = SDL_TRUE;
@@ -172,6 +186,7 @@ int main(void){
 	//Write your code here
 	//Example : 
 	CINI_fill_window(renderer,"ff0000");
+	CINI_fillrect(renderer, 150, 50 ,150,100,"00ff00");
 	CINI_loop(renderer);
 	//End example.
 	
