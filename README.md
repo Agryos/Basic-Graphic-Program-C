@@ -9,10 +9,6 @@ It use SDL2 librairy you need to have the SDL2 librairy installed
 
 on linux : sudo apt-get install libsdl2-dev
 
-CINI_Window
-
-
-
-
-
+You can start tiping your code line 172.
+You can change the size window by changing TAILLE_FENETRE_W for the width of the window and TAILLE_FENETRE_H for the heigth.
 
