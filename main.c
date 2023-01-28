@@ -170,8 +170,10 @@ int main(int argc, char **argv){
 		end_program("renderer",window,NULL,NULL);	
 	}
 	//Write your code here
-	
-	
+	//Example : 
+	CINI_fill_window(renderer,"ff0000");
+	CINI_loop(renderer);
+	//End example.
 	
 	end_program("NO_FAILURE",window,renderer,texture);
 	SDL_Quit();
