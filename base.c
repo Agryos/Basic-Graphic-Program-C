@@ -1,5 +1,4 @@
 #include <SDL.h>
-#include <SDL_image.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -23,7 +22,6 @@ void clean_ressources(SDL_Window* w,SDL_Renderer* r,SDL_Texture* t){
 	if(w!=NULL){
 		SDL_DestroyWindow(w);
 	}
-
 }
 
 
@@ -60,7 +58,6 @@ Uint8 modulo(int a,int b){
 Uint8 convert_hex_to_int(char hex){
 	int r = -1;
 	char n = hex;
-	
 	if(n == 'a'){
 		r=10;
 	}
@@ -86,16 +83,6 @@ Uint8 convert_hex_to_int(char hex){
 }
 
 
-int pow_int(int a,int b){
-	int res = 1;
-	for(int i=0;i<b;i+=1){
-		res = res*a;
-	}
-	return res;
-}
-
-
-
 Uint8* convert_hex_to_int_color(char* hex){
 	Uint8* T = malloc(sizeof(Uint8)*3);
 	Uint8 seize = 16;
@@ -109,7 +96,6 @@ Uint8* convert_hex_to_int_color(char* hex){
 
 int CINI_draw_pixel(SDL_Renderer* renderer,int x,int y,char* c){
 	Uint8* T = convert_hex_to_int_color(c);
-	
 	if(draw_pixel(renderer,x,y,T[0],T[1],T[2]) != EXIT_SUCCESS){
 		free(T);
 		return EXIT_FAILURE;
@@ -121,7 +107,6 @@ int CINI_draw_pixel(SDL_Renderer* renderer,int x,int y,char* c){
 
 int CINI_fill_window(SDL_Renderer* renderer,char* c){
 	Uint8* T = convert_hex_to_int_color(c);
-	
 	if(fill_window(renderer,T[0],T[1],T[2]) != EXIT_SUCCESS){
 		free(T);
 		return EXIT_FAILURE;
@@ -132,10 +117,7 @@ int CINI_fill_window(SDL_Renderer* renderer,char* c){
 
 void CINI_loop(SDL_Renderer* renderer){
 	SDL_RenderPresent(renderer);
-	
 	SDL_bool displayed = SDL_TRUE;
-	
-	
 	while(displayed){
 		SDL_Event event;
 		while(SDL_PollEvent(&event)){
@@ -145,14 +127,10 @@ void CINI_loop(SDL_Renderer* renderer){
 						case SDLK_ESCAPE:
 							displayed = SDL_FALSE;
 							break;
-						
-						
 						default:
 							break;
 					}
 					break;
-			
-				
 				case SDL_QUIT:
 					displayed = SDL_FALSE;
 					break;
@@ -168,6 +146,7 @@ int main(int argc, char **argv){
 	SDL_Window* window = NULL;
 	SDL_Renderer* renderer = NULL;
 	SDL_Texture* texture = NULL;
+	//set window size here
 	int TAILLE_FENETRE_W = 1000;
 	int TAILLE_FENETRE_H = 500;
 
@@ -190,54 +169,11 @@ int main(int argc, char **argv){
 	if(renderer == NULL){
 		end_program("renderer",window,NULL,NULL);	
 	}
-	
-	
-
-		
-	if(CINI_fill_window(renderer,"ffff00") != EXIT_SUCCESS){
-		end_program("render_fillrect",window,renderer,texture);
-	}
-	
-	for(int i=0;i<100;i+=1){
-		for(int j=0;j<100;j+=1){
-			if(CINI_draw_pixel(renderer,i,j,"00ff00") != EXIT_SUCCESS){
-				end_program("render_fillrect",window,renderer,texture);
-			}
-		}
-	}
+	//Write your code here
 	
 	
 	
-	CINI_loop(renderer);
-	
-	for(int i=0;i<100;i+=1){
-		for(int j=0;j<100;j+=1){
-			if(CINI_draw_pixel(renderer,i,j,"ffffff") != EXIT_SUCCESS){
-				end_program("render_fillrect",window,renderer,texture);
-			}
-		}
-	}
-	
-	CINI_loop(renderer);
-	
-	CINI_fill_window(renderer,"ff0000");
-	
-	CINI_loop(renderer);
-
-
-
-
-
 	end_program("PAS DECHEC",window,renderer,texture);
-
 	SDL_Quit();
-	
-	
-	
-	
-	
 	return 0;
-	
-
-
 }
