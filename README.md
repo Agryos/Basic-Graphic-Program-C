@@ -13,6 +13,6 @@ You can start tiping your code line 172.
 
 You can change the size window by changing WINDOW_W for the width of the window and WINDOW_H for the heigth.
 
-You can compile by using : gcc [name of the fil to compile] -o [name_of_the_executable_file] $(sdl2-config --cflags --libs)
+You can compile by using : gcc [name of the file to compile] -o [name_of_the_executable_file] $(sdl2-config --cflags --libs)
 
 
