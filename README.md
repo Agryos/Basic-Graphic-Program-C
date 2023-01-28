@@ -6,9 +6,10 @@ WARNING : This program is free to use but is made by me so it's up to you to do 
 
 
 It use SDL2 librairy you need to have the SDL2 librairy installed
-ON linux : sudo apt-get install libsdl2-dev
 
+on linux : sudo apt-get install libsdl2-dev
 
+CINI_Window
 
 
 
