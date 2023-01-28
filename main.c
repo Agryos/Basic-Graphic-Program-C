@@ -5,7 +5,7 @@
 void clean_ressources(SDL_Window* w,SDL_Renderer* r,SDL_Texture* t);
 
 void end_program(char* c, SDL_Window* w,SDL_Renderer* r,SDL_Texture* t){
-		SDL_Log("CREATION %s ECHOUEE > %s",c ,SDL_GetError());
+		SDL_Log("%s > %s",c ,SDL_GetError());
 		clean_ressources(w,r,t);
 		SDL_Quit();
 		exit(EXIT_FAILURE);
@@ -142,7 +142,7 @@ void CINI_loop(SDL_Renderer* renderer){
 
 }
 
-int main(int argc, char **argv){
+int main(void){
 	SDL_Window* window = NULL;
 	SDL_Renderer* renderer = NULL;
 	SDL_Texture* texture = NULL;
@@ -152,7 +152,7 @@ int main(int argc, char **argv){
 
 	if(SDL_Init(SDL_INIT_VIDEO) != EXIT_SUCCESS)
 	{
-		end_program("INIT",NULL,NULL,NULL);
+		end_program("Creation INIT FAILURE",NULL,NULL,NULL);
 	}	
 	
 	//Program execution
@@ -160,14 +160,14 @@ int main(int argc, char **argv){
 	
 	if(window == NULL)
 	{
-		end_program("FENETRE",NULL,NULL,NULL);
+		end_program("Creation FENETRE FAILURE",NULL,NULL,NULL);
 	}
 	
 	
 	renderer = SDL_CreateRenderer(window,-1, SDL_RENDERER_SOFTWARE);
 	
 	if(renderer == NULL){
-		end_program("renderer",window,NULL,NULL);	
+		end_program("Creation renderer FAILURE",window,NULL,NULL);	
 	}
 	//Write your code here
 	//Example : 
@@ -175,7 +175,7 @@ int main(int argc, char **argv){
 	CINI_loop(renderer);
 	//End example.
 	
-	end_program("NO_FAILURE",window,renderer,texture);
+	end_program("",window,renderer,texture);
 	SDL_Quit();
 	return 0;
 }
