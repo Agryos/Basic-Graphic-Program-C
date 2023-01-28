@@ -147,8 +147,8 @@ int main(int argc, char **argv){
 	SDL_Renderer* renderer = NULL;
 	SDL_Texture* texture = NULL;
 	//set window size here
-	int TAILLE_FENETRE_W = 1000;
-	int TAILLE_FENETRE_H = 500;
+	int WINDOW_W = 1000;
+	int WINDOW_H = 500;
 
 	if(SDL_Init(SDL_INIT_VIDEO) != EXIT_SUCCESS)
 	{
@@ -156,7 +156,7 @@ int main(int argc, char **argv){
 	}	
 	
 	//Execution programme
-	window = SDL_CreateWindow("HéhéhéhA loul",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,TAILLE_FENETRE_W,TAILLE_FENETRE_H,0);
+	window = SDL_CreateWindow("Print",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,WINDOW_W,WINDOW_H,0);
 	
 	if(window == NULL)
 	{
@@ -173,7 +173,7 @@ int main(int argc, char **argv){
 	
 	
 	
-	end_program("PAS DECHEC",window,renderer,texture);
+	end_program("NO_FAILURE",window,renderer,texture);
 	SDL_Quit();
 	return 0;
 }
