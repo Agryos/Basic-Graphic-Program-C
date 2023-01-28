@@ -155,7 +155,7 @@ int main(int argc, char **argv){
 		end_program("INIT",NULL,NULL,NULL);
 	}	
 	
-	//Execution programme
+	//Program execution
 	window = SDL_CreateWindow("Print",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,WINDOW_W,WINDOW_H,0);
 	
 	if(window == NULL)
